@@ -29,6 +29,10 @@ document.onmousemove = function (event) {
     mouse = screenToWorld(event.clientX, event.clientY);
 };
 
+document.ontouchmove = function (event) {
+    mouse = screenToWorld(event.touches[0].clientX, event.touches[0].clientY);
+};
+
 
 document.onvisibilitychange = function () {
     if (document.hidden) {
@@ -254,7 +258,7 @@ export default function (game) {
             }
             selectedBalls = [];
             for (let circle of getNnearestShieldBalls(upgrades.throwCount, mouse[0], mouse[1], true)) {
-                circle.color = "red";
+                circle.color = "white";
                 selectedBalls.push(circle);
             }
             if (performance.now() - regenerateCooldownNow > regenerateCooldown) {
@@ -267,14 +271,18 @@ export default function (game) {
 
 
 
-        document.onpointerdown = function () {
+        document.onpointerdown = function (e) {
             clicking = true;
+            mouse = screenToWorld(e.clientX, e.clientY);
         };
 
-        document.onpointerup = function () {
+        document.onpointerup = function (e) {
             clicking = false;
         };
 
+        document.ontouchend = function (e) {
+            clicking = false;
+        };
 
         const throwBall = function () {
             if (selectedBalls == []) {

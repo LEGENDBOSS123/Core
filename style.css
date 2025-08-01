@@ -96,7 +96,15 @@ canvas {
     max-width: 550px;
     box-shadow: 0 0 25px rgba(37, 117, 252, 0.4);
     text-align: center;
+    height: auto;
 }
+
+#upgrade-screen {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+
 
 .title {
     font-size: 3em;

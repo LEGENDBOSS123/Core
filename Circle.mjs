@@ -30,8 +30,8 @@ export default class Circle {
         ctx.arc(this.position[0], this.position[1], this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 5;
         ctx.stroke();
     }
 

@@ -37,7 +37,6 @@ export default function menuScreen(game) {
         const mainMenu = document.getElementById('main-menu');
         const upgradeScreen = document.getElementById('upgrade-screen');
 
-        const highscoreDisplay = document.getElementById('highscore-display');
         const waveDisplay = document.getElementById('wave-display');
         const moneyDisplayMain = document.getElementById('money-display-main');
         const moneyDisplayUpgrades = document.getElementById('money-display-upgrades');
@@ -53,7 +52,6 @@ export default function menuScreen(game) {
         function updateUI() {
             // Update shared info
             const moneyText = `Money: $${game.money}`;
-            highscoreDisplay.textContent = `High Score: ${game.highscore}`;
             waveDisplay.textContent = `Wave: ${game.wave}`;
             moneyDisplayMain.textContent = moneyText;
             moneyDisplayUpgrades.textContent = moneyText;
