@@ -38,14 +38,14 @@ let upgrades = {
 }
 
 let game = {
-    money: 22000000,
+    money: 0,
     upgrades: upgrades,
     textureLoader: textureLoader,
     soundManager: soundManager,
     canvas: canvas,
     ctx: ctx,
     score: 0,
-    wave: 20
+    wave: 1
 }
 
 
