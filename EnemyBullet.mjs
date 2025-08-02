@@ -6,7 +6,7 @@ export default class EnemyBullet extends Circle {
     static radius = 10;
     constructor(position = [0, 0], isStatic = false, acceleration = [0, 0], mass = 1, color = "brown") {
         super(position, isStatic, acceleration, mass, color);
-        this.color = "red";
+        this.color = "pink";
 
         this.isEnemyBullet = true;
         this.health = 1;
@@ -21,8 +21,8 @@ export default class EnemyBullet extends Circle {
         ctx.arc(this.position[0], this.position[1], this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 3;
         ctx.stroke();
     }
 
@@ -32,7 +32,7 @@ export default class EnemyBullet extends Circle {
         if (this.health < 0) {
             this.toBeRemoved = true;
             window.game.money += this.cashValue;
-            window.game.soundManager.play("shatter"+Math.floor(Math.random() * 2));
+            window.game.soundManager.play("shatter0", 0.75);
         }
 
         const dx = - this.position[0];
@@ -55,7 +55,7 @@ export default class EnemyBullet extends Circle {
         if (super.doCollisionWith(circle)) {
             if (circle.isShield) {
                 this.health -= circle.damage;
-                circle.toBeRemoved = true;
+                circle.dead = true;
             }
             return true;
         }

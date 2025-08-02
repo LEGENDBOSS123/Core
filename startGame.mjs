@@ -5,7 +5,7 @@ import Shield from "./Shield.mjs";
 import World from "./World.mjs"
 import shieldPos from "./shieldPos.mjs";
 import Levels from "./Levels.mjs";
-import LevelData from "./LevelData.mjs";
+import LevelData from "./LevelDataGemini.mjs";
 import EnemyBullet from "./EnemyBullet.mjs";
 let currentZoom = 0.2;
 
@@ -156,7 +156,7 @@ export default function (game) {
         }
 
         for (let i = 0; i < Math.min(upgrades.shieldBallCount, shieldPos.length); i++) {
-            let c = new Shield([(shieldPos[i][0] - canvas.width * 0.5) * 3, (shieldPos[i][1] - canvas.height * 0.5) * 3], undefined, undefined, 1, "orange")
+            let c = new Shield([(shieldPos[i][0] - canvas.width * 0.5) * 4, (shieldPos[i][1] - canvas.height * 0.5) * 4], undefined, undefined, 1, "orange")
             configureShield(c);
             world.add(c);
         }
@@ -176,7 +176,6 @@ export default function (game) {
 
             ctx.fillStyle = backgroundImage1Pattern;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             const targetCameraX = canvas.width / 2 - core.position[0] * currentZoom - mouse[0] * 0.007;
             const targetCameraY = canvas.height / 2 - core.position[1] * currentZoom - mouse[1] * 0.007;
             cameraX += (targetCameraX - cameraX) * cameraSmoothness;
@@ -221,7 +220,7 @@ export default function (game) {
                 return distA - distB;
             }).slice(0, n);
         }
-
+        let gameover = false;
 
         var selectedBalls = [];
         let nowTime = performance.now();
@@ -347,7 +346,7 @@ export default function (game) {
                 game.wave++;
                 gamerunning = false;
                 document.getElementById("thing").textContent = "YOU WIN THIS WAVE";
-                soundManager.play("gameWin", 0.5);
+                soundManager.play("gameWin", 0.75);
                 win = true;
             }
             if (clicking && performance.now() - clickTime > clickDuration) {
@@ -361,11 +360,12 @@ export default function (game) {
 
                 requestAnimationFrame(animate);
             }
-            else {
+            else if (!gameover) {
                 if (!win) {
                     document.getElementById("thing").textContent = "YOU LOST, TRY AGAIN";
-                    soundManager.play("gameOver", 0.5);
+                    soundManager.play("gameOver", 0.75);
                 }
+                gameover = true;
                 resolve();
             }
         }

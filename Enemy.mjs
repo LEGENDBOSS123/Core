@@ -85,7 +85,7 @@ export default class Enemy extends Circle {
         if (super.doCollisionWith(circle)) {
             if (circle.isShield) {
                 this.health -= circle.damage;
-                circle.toBeRemoved = true;
+                circle.dead = true;
             }
 
             return true;
