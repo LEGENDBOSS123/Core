@@ -18,7 +18,8 @@ await soundManager.addSounds({
     "throw": "shoot2.mov",
     "enemy-explosion": "underwater_explosion.mov",
     "gameOver": "gameOver.mp3",
-    "gameWin": "gameWin.mov"
+    "gameWin": "gameWin.mov",
+    "background": "bgmusic.mp3"
 })
 
 const textureLoader = new TextureLoader();
@@ -47,15 +48,19 @@ let game = {
 
 
 
-
 document.getElementById("loading").style.display = "none";
 
+window.isPlayingBG = false;
+
 while (true) {
-    if(game.wave > 20){
+    if (game.wave > 20) {
         break;
     }
     await menuScreen(game);
-    
+    if (!window.isPlayingBG) {
+        soundManager.play("background", 0.2, true);
+        window.isPlayingBG = true;
+    }
     await startGame(game);
 }
 

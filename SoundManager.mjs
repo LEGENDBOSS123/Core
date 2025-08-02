@@ -39,11 +39,11 @@ const SoundManager = class {
         }
     }
 
-    setVolume(v = 1){
+    setVolume(v = 1) {
         this.masterGain.gain.value = v;
     }
 
-    play(name, volume = 1) {
+    play(name, volume = 1, loop = false) {
         const buffer = this.sounds[name];
         if (!buffer) {
             return;
@@ -52,6 +52,7 @@ const SoundManager = class {
         const gain = this.audioContext.createGain();
         gain.gain.value = volume;
         source.buffer = buffer;
+        source.loop = loop;
         source.connect(gain);
         gain.connect(this.masterGain);
         source.start(0);
