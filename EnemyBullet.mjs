@@ -38,6 +38,9 @@ export default class EnemyBullet extends Circle {
         const dx = - this.position[0];
         const dy = - this.position[1];
         const distanceSquared = dx * dx + dy * dy;
+        if(distanceSquared > 9000000){
+            this.health = 0;
+        }
         const distance = Math.sqrt(distanceSquared);
         if (distance < 0.0001) {
             return;

@@ -17,9 +17,9 @@ const upgradeConfig = {
 function getUpgradeCost(key, currentValue) {
     switch (key) {
         case 'shieldBallCount':
-            return Math.floor(40 * Math.pow(2.35, currentValue/50 - 1));
+            return Math.floor(40 * Math.pow(currentValue / 50 - 1, 2));
         case 'throwCount':
-            return Math.floor(50 * Math.pow(1.6, currentValue - 1));
+            return Math.floor(50 * Math.pow(currentValue, 1.6));
         case 'regenerateCount':
             return Math.floor(20 * Math.pow(currentValue, 0.85));
         case 'shieldDamage':

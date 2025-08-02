@@ -1,11 +1,10 @@
-import Circle from "./Circle.mjs";
 import Core from "./Core.mjs";
 import Enemy from "./Enemy.mjs";
 import Shield from "./Shield.mjs";
 import World from "./World.mjs"
 import shieldPos from "./shieldPos.mjs";
 import Levels from "./Levels.mjs";
-import LevelData from "./LevelDataGemini.mjs";
+import LevelData from "./LevelData.mjs";
 import EnemyBullet from "./EnemyBullet.mjs";
 let currentZoom = 0.2;
 
@@ -139,9 +138,7 @@ export default function (game) {
         window.world = world;
         const wave = structuredClone(LevelData[game.wave]);
 
-        const floorPattern = ctx.createPattern(createScaledImageCanvas(textureLoader.getImage("floor"), 8), 'repeat');
-        const stonePattern = ctx.createPattern(createScaledImageCanvas(textureLoader.getImage("stone"), 8), 'repeat');
-        const backgroundImage1Pattern = ctx.createPattern(createScaledImageCanvas(textureLoader.getImage("floor"), 100), 'repeat');
+        const backgroundImage1Pattern = ctx.createPattern(createScaledImageCanvas(textureLoader.getImage("background"), 20), 'repeat');
 
         let regenerateCooldownNow = 0;
         let regenerateCooldown = 2000;
@@ -169,9 +166,10 @@ export default function (game) {
             var y = distance * Math.sin(angle);
             var c = new Shield([x, y], undefined, undefined, 1, "orange")
             configureShield(c);
+            c.isFlung = true;
             world.add(c);
         }
-        const draw = function () {
+        const draw = function (lerpAmount) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = backgroundImage1Pattern;
@@ -188,15 +186,14 @@ export default function (game) {
             world.draw({
                 ctx: ctx,
                 textureLoader: textureLoader,
-                floor: floorPattern,
-                // player: player,
                 canvas: canvas,
-                stone: stonePattern
+                lerpAmount: lerpAmount
             });
 
             ctx.restore();
             drawText("white", "14px Arial", "FPS: " + Math.round(fps), 10, 20, ctx);
             drawText("white", "14px Arial", "MONEY: " + Math.round(game.money), 10, 39, ctx);
+            drawText("white", "14px Arial", "WAVE: " + Math.round(game.wave), 10, 58, ctx);
             drawText("white", "24px Arial", wave.text, 400, 550, ctx, true);
         }
 
@@ -311,9 +308,7 @@ export default function (game) {
             soundManager.play("throw", 0.25);
         }
         const startTime = performance.now();
-        const sleep = function (seconds) {
-            return new Promise(resolve => setTimeout(resolve, seconds * 1000));
-        }
+        
         let gamerunning = true;
         const animate = async function () {
             const now = performance.now();
@@ -336,11 +331,25 @@ export default function (game) {
 
             const anyLeft = Levels(wave, now - startTime);
             let anyLeft2 = false;
+            let anyEnemyLeft = false;
             for (let c of world.circles) {
                 if (c instanceof Enemy || c instanceof EnemyBullet) {
                     anyLeft2 = true;
                 }
+                if(c instanceof Enemy){
+                    anyEnemyLeft = true;
+                }
             }
+            if(!anyEnemyLeft){
+                for (let c of world.circles) {
+                    if (c instanceof EnemyBullet) {
+                        if(c.position[0] > canvas.width * 5/2 || c.position[0] < -canvas.width * 5/2 || c.position[1] > canvas.height * 5/2 || c.position[1] < -canvas.height * 5/2){
+                            c.health = 0;
+                        }
+                    }
+                }
+            }
+            draw(1-accumulatedTime / deltaTime);
             let win = false;
             if (!anyLeft && !anyLeft2) {
                 game.wave++;
@@ -354,7 +363,6 @@ export default function (game) {
                 clickTime = performance.now();
             }
 
-            draw();
 
             if (core.id != -1 && gamerunning) {
 

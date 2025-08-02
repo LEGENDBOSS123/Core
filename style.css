@@ -10,18 +10,32 @@ body {
 }
 
 canvas {
-    background-color: #70c5ce;
+    background-image: url("./Assets/background.png");
+    background-size: cover;
     border: 5px solid #333;
     border-radius: 10px;
     display: block;
     width: 800px;
     height: 600px;
     width: min(100vw, calc(100vh * (800 / 600)));
-    /* Scale to fill width, or scale to fill height based on aspect ratio */
     height: min(100vh, calc(100vw * (600 / 800)));
     object-fit: contain;
     transform-origin: center center;
     box-sizing: border-box;
+}
+
+
+.win-title {
+    color: #ffcc00;
+    text-shadow: 0 0 15px #ffcc00;
+    font-size: 4em;
+    margin-bottom: 30px;
+}
+
+.win-message {
+    font-size: 1.8em;
+    color: #e0e0e0;
+    margin-bottom: 25px;
 }
 
 
@@ -64,14 +78,10 @@ canvas {
     width: 24px;
     height: 24px;
 }
-/* Add these styles to your existing CSS file */
-
-/* Utility class to hide elements */
 .hidden {
     display: none !important;
 }
 
-/* Main container for all menu UI, positioned over the canvas */
 #menu-container {
     position: absolute;
     top: 0;
@@ -82,11 +92,10 @@ canvas {
     justify-content: center;
     align-items: center;
     color: white;
-    z-index: 10; /* Ensures the menu is on top of the canvas */
-    backdrop-filter: blur(5px); /* Optional: blurs the canvas behind the menu */
+    z-index: 10;
+    backdrop-filter: blur(5px);
 }
 
-/* Common styling for menu panels */
 .menu-screen {
     background: rgba(13, 17, 23, 0.9);
     border: 2px solid #2575fc;

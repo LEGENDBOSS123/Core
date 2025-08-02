@@ -27,7 +27,10 @@ export default class Circle {
     draw(world, options) {
         const ctx = options.ctx;
         ctx.beginPath();
-        ctx.arc(this.position[0], this.position[1], this.radius, 0, 2 * Math.PI);
+        var lerp = options.lerpAmount;
+        var lerpedX = this.position[0] + (this.lastPosition[0] - this.position[0]) * lerp;
+        var lerpedY = this.position[1] + (this.lastPosition[1] - this.position[1]) * lerp;
+        ctx.arc(lerpedX, lerpedY, this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.strokeStyle = "red";

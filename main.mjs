@@ -23,10 +23,7 @@ await soundManager.addSounds({
 
 const textureLoader = new TextureLoader();
 await textureLoader.addImages({
-    "floor": "floor.png",
-    "bg1": "backgroundnight2.png",
-    "bgday": "backgroundDay.png",
-    "stone": "stone.png",
+    "background": "background.png",
 })
 
 
@@ -54,10 +51,16 @@ let game = {
 document.getElementById("loading").style.display = "none";
 
 while (true) {
+    if(game.wave > 20){
+        break;
+    }
     await menuScreen(game);
+    
     await startGame(game);
 }
 
+
+document.getElementById("win-screen").classList.remove("hidden");
 
 
 

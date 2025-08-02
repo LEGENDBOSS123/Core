@@ -11,7 +11,9 @@
 
 <body>
     <div id="loading" style="width: 100%; height: 100%; position: absolute; top:0;left:0;background-color: black;">
-        <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);color: white; font-size: 30px;">Loading... Wait 10-20 seconds</p>
+        <p
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);color: white; font-size: 30px;">
+            Loading... Wait 10-20 seconds</p>
     </div>
     <div id="menu-container" class="hidden">
         <div id="main-menu" class="menu-screen">
@@ -26,12 +28,16 @@
             <h1 class="title">Upgrades</h1>
             <p id="money-display-upgrades">Money: $0</p>
             <ul id="upgrade-list">
-                </ul>
+            </ul>
             <button id="back-to-main-btn" class="menu-btn back">Back</button>
         </div>
     </div>
-
+    <div id="win-screen" class="menu-screen hidden" style="position: absolute;">
+        <h1 class="title win-title">VICTORY!</h1>
+        <p class="win-message">You successfully defeated 20 waves!!!</p>
+    </div>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
+
     <button class="fullscreen-button" id="fullscreenToggle" title="Toggle Fullscreen">
         <svg id="fullscreenIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onclick="
             if (document.fullscreenElement) {

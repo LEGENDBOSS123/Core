@@ -27,7 +27,7 @@ export default class Shield extends Circle {
 
             }
             if (this.isFlung || circle.isFlung) {
-                if (Vector2.magnitudeSquaredArray(this.position) < 150 * 150 || Vector2.magnitudeSquaredArray(circle.position) < 150 * 150) {
+                if (Vector2.magnitudeSquaredArray(this.position) < 200 * 200 || Vector2.magnitudeSquaredArray(circle.position) < 200 * 200) {
                     this.isFlung = false;
                     circle.isFlung = false;
                 }
