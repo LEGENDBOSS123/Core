@@ -2,10 +2,10 @@
 
 // Defines the properties of each upgrade
 const upgradeConfig = {
-    shieldBallCount: { name: 'Shield Ball Count', increment: 25 },
+    shieldBallCount: { name: 'Shield Orb Count', increment: 25 },
     throwCount: { name: 'Extra Throw', increment: 1 },
     regenerateCount: { name: 'Regeneration', increment: 1 },
-    shieldDamage: { name: 'Shield Damage', increment: 1 }
+    shieldDamage: { name: 'Shield Orb Damage', increment: 1 }
 };
 
 /**

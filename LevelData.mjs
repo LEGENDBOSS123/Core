@@ -12,11 +12,11 @@ export default {
                 "dbc": 10,
                 "cash": 100,
                 "bulletNumber": 1,
-                "bulletTime": 5000000,
+                "bulletTime": 300,
                 "health": 50,
             }
         ],
-        "text": "Drag across the screen to shoot your shield balls.\nIf any bullet/enemy hits your core, you will die."
+        "text": "Drag across the screen to shoot your shield orbs.\nIf any bullet/enemy hits your core, you will die."
     },
     "2": {
         "enemies": [
@@ -31,7 +31,7 @@ export default {
                 "dbc": 10,
                 "cash": 100,
                 "bulletNumber": 1,
-                "bulletTime": 5000000,
+                "bulletTime": 300,
                 "health": 50,
             },
             {
@@ -45,13 +45,32 @@ export default {
                 "dbc": 10,
                 "cash": 100,
                 "bulletNumber": 1,
-                "bulletTime": 5000000,
+                "bulletTime": 300,
                 "health": 50,
             }
         ],
-        "text": "Can you handle 2 now?"
+        "text": "Can you handle 2 now?\nYou can upgrade your stats with money."
     },
     "3": {
+        "enemies": [
+            {
+                "type": "basic",
+                "spawnTime": 0,
+                "radius": 60,
+                "angle": 0,
+                "distance": 1500,
+                "av": 0.001,
+                "iv": 1,
+                "dbc": 3,
+                "cash": 50,
+                "bulletNumber": 2,
+                "bulletTime": 40,
+                "health": 100,
+            },
+        ],
+        "text": "This one may be a bit harder."
+    },
+    "4": {
         "enemies": [
             {
                 "type": "basic",
@@ -65,29 +84,10 @@ export default {
                 "cash": 200,
                 "bulletNumber": 1,
                 "bulletTime": 10000000000,
-                "health": 200,
+                "health": 250,
             },
         ],
-        "text": "What about this tiny one?\nHe has double the health of the previous one :>"
-    },
-    "4": {
-        "enemies": [
-            {
-                "type": "basic",
-                "spawnTime": 0,
-                "radius": 60,
-                "angle": 0,
-                "distance": 1500,
-                "av": 0.001,
-                "iv": 1,
-                "dbc": 3,
-                "cash": 50,
-                "bulletNumber": 2,
-                "bulletTime": 20,
-                "health": 200,
-            },
-        ],
-        "text": "This one may be a bit harder."
+        "text": "Heres a tank. Get Extra Throw or Shield Damage."
     },
     "5": {
         "enemies": [
@@ -163,7 +163,7 @@ export default {
                 "dbc": 3,
                 "cash": 200,
                 "bulletNumber": 4,
-                "bulletTime": 100,
+                "bulletTime": 80,
                 "health": 250,
             },
             {
@@ -177,11 +177,11 @@ export default {
                 "dbc": 3,
                 "cash": 200,
                 "bulletNumber": 4,
-                "bulletTime": 100,
+                "bulletTime": 80,
                 "health": 250,
             },
         ],
-        "text": "Save up for Shield Damage."
+        "text": "Save up for more Shield Orb Damage and Extra Throw."
     },
     "7": {
         "enemies": [
@@ -194,7 +194,7 @@ export default {
                 "av": 0.001,
                 "iv": 2,
                 "dbc": 3,
-                "cash": 200,
+                "cash": 500,
                 "bulletNumber": 4,
                 "bulletTime": 100,
                 "health": 300,
@@ -208,7 +208,7 @@ export default {
                 "av": 0.001,
                 "iv": 2,
                 "dbc": 3,
-                "cash": 200,
+                "cash": 500,
                 "bulletNumber": 4,
                 "bulletTime": 100,
                 "health": 300,
@@ -222,7 +222,7 @@ export default {
                 "av": 0.001,
                 "iv": 2,
                 "dbc": 3,
-                "cash": 200,
+                "cash": 500,
                 "bulletNumber": 4,
                 "bulletTime": 100,
                 "health": 300,
@@ -236,7 +236,7 @@ export default {
                 "av": 0.001,
                 "iv": 2,
                 "dbc": 3,
-                "cash": 200,
+                "cash": 500,
                 "bulletNumber": 4,
                 "bulletTime": 100,
                 "health": 300,
@@ -393,14 +393,14 @@ export default {
         "enemies": [
             { "type": "basic", "spawnTime": 0, "radius": 80, "angle": 0, "distance": 1500, "av": 0.006, "iv": 0.5, "dbc": 5, "cash": 150, "bulletNumber": 2, "bulletTime": 120, "health": 400 },
             { "type": "basic", "spawnTime": 0, "radius": 80, "angle": Math.PI, "distance": 1500, "av": 0.006, "iv": 0.5, "dbc": 5, "cash": 150, "bulletNumber": 2, "bulletTime": 120, "health": 400 },
-            { "type": "basic", "spawnTime": 5000, "radius": 40, "angle": Math.PI / 2, "distance": 1500, "av": 0.001, "iv": 2.2, "dbc": 5, "cash": 250, "bulletNumber": 3, "bulletTime": 100, "health": 300 },
-            { "type": "basic", "spawnTime": 5000, "radius": 40, "angle": -Math.PI / 2, "distance": 1500, "av": 0.001, "iv": 2.2, "dbc": 5, "cash": 250, "bulletNumber": 3, "bulletTime": 100, "health": 300 }
+            { "type": "basic", "spawnTime": 5000, "radius": 40, "angle": Math.PI / 2, "distance": 1500, "av": 0.001, "iv": 2.2, "dbc": 5, "cash": 250, "bulletNumber": 3, "bulletTime": 100, "health": 400 },
+            { "type": "basic", "spawnTime": 5000, "radius": 40, "angle": -Math.PI / 2, "distance": 1500, "av": 0.001, "iv": 2.2, "dbc": 5, "cash": 250, "bulletNumber": 3, "bulletTime": 100, "health": 400 }
         ],
         "text": "A mix of fast orbiters and rushers."
     },
     "10": {
         "enemies": [
-            { "type": "basic", "spawnTime": 0, "radius": 200, "angle": 0, "distance": 1600, "av": 0.002, "iv": 0.2, "dbc": 20, "cash": 2500, "bulletNumber": 8, "bulletTime": 80, "health": 5000 }
+            { "type": "basic", "spawnTime": 0, "radius": 200, "angle": 0, "distance": 1600, "av": 0.002, "iv": 0.2, "dbc": 20, "cash": 2500, "bulletNumber": 8, "bulletTime": 30, "health": 5000 }
         ],
         "text": "First Boss! It's slow but tough."
     },
@@ -417,25 +417,25 @@ export default {
     },
     "12": {
         "enemies": [
-            { "type": "basic", "spawnTime": 0, "radius": 30, "angle": 1, "distance": 1500, "av": 0.002, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 150 },
-            { "type": "basic", "spawnTime": 500, "radius": 30, "angle": 2, "distance": 1500, "av": 0.002, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 150 },
-            { "type": "basic", "spawnTime": 1000, "radius": 30, "angle": 3, "distance": 1500, "av": 0.002, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 150 },
-            { "type": "basic", "spawnTime": 1500, "radius": 30, "angle": 4, "distance": 1500, "av": 0.002, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 150 },
-            { "type": "basic", "spawnTime": 2000, "radius": 30, "angle": 5, "distance": 1500, "av": 0.002, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 150 },
-            { "type": "basic", "spawnTime": 2500, "radius": 30, "angle": 6, "distance": 1500, "av": 0.002, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 150 }
+            { "type": "basic", "spawnTime": 0, "radius": 30, "angle": 1, "distance": 1500, "av": 0.003, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 200 },
+            { "type": "basic", "spawnTime": 500, "radius": 30, "angle": 2, "distance": 1500, "av": 0.003, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 200 },
+            { "type": "basic", "spawnTime": 1000, "radius": 30, "angle": 3, "distance": 1500, "av": 0.003, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 200 },
+            { "type": "basic", "spawnTime": 1500, "radius": 30, "angle": 4, "distance": 1500, "av": 0.003, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 200 },
+            { "type": "basic", "spawnTime": 2000, "radius": 30, "angle": 5, "distance": 1500, "av": 0.003, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 200 },
+            { "type": "basic", "spawnTime": 2500, "radius": 30, "angle": 6, "distance": 1500, "av": 0.003, "iv": 2.5, "dbc": 3, "cash": 150, "bulletNumber": 1, "bulletTime": 10000, "health": 200 }
         ],
         "text": "Kamikaze wave. They are fast!"
     },
     "13": {
         "enemies": [
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 0, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": Math.PI / 2, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 3 * Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": Math.PI, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 5 * Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 3 * Math.PI / 2, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 },
-            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 7 * Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 2, "bulletTime": 150, "health": 800 }
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 0, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": Math.PI / 2, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 3 * Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": Math.PI, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 5 * Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 3 * Math.PI / 2, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 },
+            { "type": "basic", "spawnTime": 0, "radius": 70, "angle": 7 * Math.PI / 4, "distance": 1500, "av": 0.004, "iv": 0.3, "dbc": 8, "cash": 300, "bulletNumber": 4, "bulletTime": 150, "health": 800 }
         ],
         "text": "The walls are closing in."
     },
@@ -458,9 +458,11 @@ export default {
     },
     "16": {
         "enemies": [
-            { "type": "basic", "spawnTime": 0, "radius": 250, "angle": 0, "distance": 1500, "av": 0.001, "iv": 0.1, "dbc": 100, "cash": 5000, "bulletNumber": 1, "bulletTime": 100000, "health": 10000 }
+            { "type": "basic", "spawnTime": 0, "radius": 250, "angle": 0, "distance": 1500, "av": 0.001, "iv": 0.1, "dbc": 100, "cash": 5000, "bulletNumber": 1, "bulletTime": 100000, "health": 4000 },
+            { "type": "basic", "spawnTime": 5000, "radius": 250, "angle": 0, "distance": 1500, "av": 0.001, "iv": 0.1, "dbc": 100, "cash": 5000, "bulletNumber": 1, "bulletTime": 100000, "health": 4000 },
+            { "type": "basic", "spawnTime": 10000, "radius": 250, "angle": 0, "distance": 1500, "av": 0.001, "iv": 0.1, "dbc": 100, "cash": 5000, "bulletNumber": 1, "bulletTime": 100000, "health": 4000 }
         ],
-        "text": "This one has a nasty surprise upon death."
+        "text": "These have a nasty surprise upon death."
     },
     "17": {
         "enemies": [

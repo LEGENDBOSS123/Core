@@ -29,7 +29,7 @@ export default class EnemyBullet extends Circle {
     step(deltaTime) {
         super.step(deltaTime);
 
-        if (this.health < 0) {
+        if (this.health <= 0) {
             this.toBeRemoved = true;
             window.game.money += this.cashValue;
             window.game.soundManager.play("shatter0", 0.75);
